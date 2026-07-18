@@ -1,13 +1,13 @@
 name: Task
-description: Атомарная задача (Business + Technical + Learning)
+description: Учебный срез (Теория + Практика + AC). Без пошаговых рецептов.
 title: "[Task] "
 labels: ["task", "status:ready", "size:S"]
 body:
   - type: markdown
     attributes:
       value: |
-        Обязательны все три контекста. Без учебного блока задача неполная.
-        Правила: `agents/pm.md`, ветки: `agents/git-workflow.md`.
+        Тон: строгий TL. Бить в теорию и практику. Не tutorial.
+        Правила: `agents/pm.md`. Поставка: обычно часть epic-PR (`agents/git-workflow.md`).
   - type: input
     id: epic
     attributes:
@@ -43,70 +43,67 @@ body:
       default: 0
     validations:
       required: true
-  - type: input
-    id: branch
-    attributes:
-      label: Branch
-      description: Заполнить при status:in-progress (feat/#N-slug)
-      placeholder: "feat/#N-slug"
-    validations:
-      required: false
   - type: textarea
-    id: context
+    id: why
     attributes:
-      label: Контекст / зачем
+      label: Зачем в продукте
+      description: Зачем marketplace/сервису, не «сделай упражнение»
     validations:
       required: true
   - type: textarea
-    id: business
+    id: theory
     attributes:
-      label: Бизнес-логика
-      description: Акторы, сценарий, инварианты, edge cases, вне скоупа
-    validations:
-      required: true
-  - type: textarea
-    id: technical
-    attributes:
-      label: Техническая логика
-      description: Слои, контракты, NFR, тесты, риски (без готового кода-решения)
-    validations:
-      required: true
-  - type: textarea
-    id: learning
-    attributes:
-      label: Учебный материал
+      label: Теория
+      description: Определения, границы, misconceptions, контрольные вопросы
       value: |
-        ### Цель обучения
+        ### Определения и границы
         -
 
-        ### Термины
-        -
-
-        ### Что изучить
+        ### Misconceptions
         1.
 
-        ### Ссылки (с аннотацией «зачем»)
-        -
+        ### Контрольные вопросы
+        1.
 
-        ### Мост NestJS→Go
-        -
-
-        ### Критерий «изучил»
+        ### Источники (официальные + зачем)
         -
     validations:
       required: true
+  - type: textarea
+    id: practice
+    attributes:
+      label: Практика
+      description: Артефакт/поведение и ограничения. Без пошагового рецепта реализации.
+      value: |
+        ### Артефакт / поведение
+        -
+
+        ### Запрещено в скоупе
+        -
+
+        ### Доказательство для review
+        -
+    validations:
+      required: true
+  - type: textarea
+    id: nest
+    attributes:
+      label: Мост NestJS → Go
+    validations:
+      required: false
   - type: textarea
     id: ac
     attributes:
       label: Acceptance criteria
       value: |
         - [ ]
+        - [ ] Контрольные вопросы закрыты в PR без misconception’ов
     validations:
       required: true
   - type: textarea
     id: risks
     attributes:
-      label: Риски и открытые вопросы
+      label: Риски
       description: Минимум 2–3 риска / альтернативные гипотезы
     validations:
       required: true
