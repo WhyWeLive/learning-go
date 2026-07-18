@@ -5,12 +5,14 @@
 ## Процедура
 
 ```bash
-gh pr view <n> --comments
+gh pr view <n>          # тело PR: ответы ученика после «-»
 gh pr diff <n>
-gh issue view <связанный-issue>
-# сверка AC Issue ↔ diff
-gh pr review <n> --comment|--request-changes|--approve --body "…"
+gh issue view <epic>    # + tasks
+go build ./... && go test ./...
+gh pr comment <n> …     # или review; merge делает агент при ok
 ```
+
+После сигнала ученика «готово» — **обязательный** проход по PR (diff + ответы + AC). См. `git-workflow.md` → «Завершение epic».
 
 Язык review: **русский**.
 
@@ -32,9 +34,10 @@ PR без связи с epic/issue в заголовке PR (`#<epic>`) — **sh
 
 ### Проверка (агент)
 
-- Самостоятельно: `go build`/`go test`, сценарии из AC Issues, `gh pr diff`.
-- Не требовать от ученика секцию «Как проверить» в PR.
-- После merge — закрыть epic/tasks через `gh issue close`, не полагаясь на auto-close.
+- Самостоятельно: `go build`/`go test`, сценарии из AC, **ответы в теле PR**.
+- Не требовать «Как проверить» в PR.
+- При ok: merge в `main` (агент), `gh issue close` epic/tasks.
+- При следующем epic: новая ветка от `main` (агент).
 
 ## Severity
 
