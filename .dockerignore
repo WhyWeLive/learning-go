@@ -1,0 +1,16 @@
+# AI
+.cursor
+.github
+agents
+AGENTS.md
+CLAUDE.md
+
+# MISC
+.gitignore
+
+# Docker
+.dockerignore
+compose.yml
+
+# build
+main
