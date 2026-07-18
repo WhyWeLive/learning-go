@@ -1,0 +1,123 @@
+name: Task
+description: Атомарная задача (Business + Technical + Learning)
+title: "[Task] "
+labels: ["task", "status:ready", "size:S"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Обязательны все три контекста. Без учебного блока задача неполная.
+        Правила: `agents/pm.md`, ветки: `agents/git-workflow.md`.
+  - type: input
+    id: epic
+    attributes:
+      label: Epic
+      description: Номер parent epic, например #1
+      placeholder: "#1"
+    validations:
+      required: true
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options:
+        - track:lang
+        - track:db
+        - track:api
+        - track:auth
+        - track:cache
+        - track:queue
+        - track:docker
+        - track:observability
+        - track:highload
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options:
+        - size:S
+        - size:M
+        - size:L
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: branch
+    attributes:
+      label: Branch
+      description: Заполнить при status:in-progress (feat/#N-slug)
+      placeholder: "feat/#N-slug"
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Контекст / зачем
+    validations:
+      required: true
+  - type: textarea
+    id: business
+    attributes:
+      label: Бизнес-логика
+      description: Акторы, сценарий, инварианты, edge cases, вне скоупа
+    validations:
+      required: true
+  - type: textarea
+    id: technical
+    attributes:
+      label: Техническая логика
+      description: Слои, контракты, NFR, тесты, риски (без готового кода-решения)
+    validations:
+      required: true
+  - type: textarea
+    id: learning
+    attributes:
+      label: Учебный материал
+      value: |
+        ### Цель обучения
+        -
+
+        ### Термины
+        -
+
+        ### Что изучить
+        1.
+
+        ### Ссылки (с аннотацией «зачем»)
+        -
+
+        ### Мост NestJS→Go
+        -
+
+        ### Критерий «изучил»
+        -
+    validations:
+      required: true
+  - type: textarea
+    id: ac
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Риски и открытые вопросы
+      description: Минимум 2–3 риска / альтернативные гипотезы
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Связи
+      value: |
+        - Parent epic:
+        - Depends on:
+        - Blocks:
+        - Related:
+    validations:
+      required: true

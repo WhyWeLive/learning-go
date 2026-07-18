@@ -1,0 +1,87 @@
+name: Epic
+description: Фаза обучения / крупный срез marketplace (согласовать до дробления на tasks)
+title: "[Epic] "
+labels: ["epic", "status:ready"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Перед массовым созданием child-tasks — согласование с пользователем.
+        Полные правила: `agents/pm.md`, `AGENTS.md`.
+  - type: textarea
+    id: vision
+    attributes:
+      label: Видение фазы
+      description: Зачем эта фаза в marketplace и в учебной траектории
+    validations:
+      required: true
+  - type: textarea
+    id: business
+    attributes:
+      label: Бизнес-логика фазы
+      description: Акторы, сценарии, инварианты, вне скоупа
+    validations:
+      required: true
+  - type: textarea
+    id: technical
+    attributes:
+      label: Техническая логика фазы
+      description: Слои, контракты, зависимости, DoD на уровне фазы (без готового кода)
+    validations:
+      required: true
+  - type: textarea
+    id: learning
+    attributes:
+      label: Учебный материал фазы
+      description: Темы track:*, термины, ссылки с аннотациями, критерий «фаза усвоена»
+      value: |
+        ### Цель обучения
+        -
+
+        ### Термины
+        -
+
+        ### Что изучить
+        1.
+
+        ### Ссылки
+        -
+
+        ### Критерий «фаза усвоена»
+        -
+    validations:
+      required: true
+  - type: textarea
+    id: ac
+    attributes:
+      label: Критерии готовности фазы
+      value: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Риски фазы и открытые вопросы
+      description: Минимум 2–3 риска / гипотезы
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Tasks
+      description: Child issues (обновлять при создании)
+      value: |
+        - [ ] <!-- #N после создания task -->
+    validations:
+      required: false
+  - type: textarea
+    id: links
+    attributes:
+      label: Связи
+      value: |
+        - Depends on:
+        - Blocks:
+        - Related:
+    validations:
+      required: false
