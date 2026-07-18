@@ -5,6 +5,6 @@ WORKDIR /app/
 COPY . /app/
 
 RUN go mod download
-RUN go build -o /app/server ./cmd/internal
+RUN go build -o /app/server ./cmd/learning-go
 
 CMD ["/app/server"]
